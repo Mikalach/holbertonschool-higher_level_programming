@@ -1,5 +1,3 @@
 #!/usr/bin/python3
-for i in range(97, 123):
-    if i == 101 or i == 113:
-        continue
-    print("".join("{}".format(chr(i)) for i in range(97, 123)), end="")
+print("".join("{}".format(chr(i)) for i in range(97, 123) if i not in
+              [101,113]), end="")
