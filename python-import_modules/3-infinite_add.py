@@ -1,8 +1,5 @@
 #!/usr/bin/python3
 import sys
 if __name__ == "__main__":
-    def main():
-        add = sum(int(arg) for arg in sys.argv[1:])
-        print("{}".format(add))
-        if name == "main":
-            main()
+    add = sum(int(sys.argv[i]) for i in range(1, len(sys.argv)))
+    print("{}".format(add)
