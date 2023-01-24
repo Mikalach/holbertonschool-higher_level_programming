@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
     if roman_string is None:
-        return none
+        return 0
     romanDic = {
         "I": 1,
         "V": 5,
