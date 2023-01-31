@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This midule is a first creation of class to define a square"""
 
+
 class Square():
     """Class that defines a square"""
 
