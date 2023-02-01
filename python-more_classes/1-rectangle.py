@@ -2,9 +2,9 @@
 """ This module is a first creation of empty class for a rectangle """
 
 
-class Rectangle:
+class Rectangle():
 
-    """Empty class"""
+    """Rectangle class"""
     def __init__(self, size=0):
         self.height = height
         self.width = width
@@ -32,5 +32,3 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = size
-
-    def square():
