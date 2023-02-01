@@ -44,14 +44,14 @@ class Rectangle():
         else:
             return (2 * (self.__width + self.__height))
 
-        def __str__(self):
-            rectstr = ""
-            if self.__width == 0 or self.__height == 0:
-                return rectstr
-            else:
-                for i in range(self.__height):
-                    for each in range(self.__width):
-                        rectstr += "#"
-                    if i < self.__height - 1:
-                        rectstr += "\n"
+    def __str__(self):
+        rectstr = ""
+        if self.__width == 0 or self.__height == 0:
             return rectstr
+        else:
+            for i in range(self.__height):
+                for each in range(self.__width):
+                    rectstr += "#"
+                if i < self.__height - 1:
+                    rectstr += "\n"
+        return rectstr
