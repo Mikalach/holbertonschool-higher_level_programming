@@ -4,7 +4,7 @@
 
 class Rectangle():
 
-    """Rectangle class"""
+    """ Rectangle class """
     def __init__(self, width=0, height=0):
         self.height = height
         self.width = width
@@ -55,8 +55,8 @@ class Rectangle():
             for i in range(self.__height):
                 for each in range(self.__width):
                     rectstr += "#"
-                    if i < self.__height - 1:
-                rectstr += "\n"
+                if i < self.__height - 1:
+                    rectstr += "\n"
         return rectstr
 
     def __repr__(self):
