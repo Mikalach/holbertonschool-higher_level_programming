@@ -47,11 +47,11 @@ class Rectangle():
         def __str__(self):
             rectstr = ""
             if self.__width == 0 or self.__height == 0:
-                return (rectstr)
+                return rectstr
             else:
                 for i in range(self.__height):
                     for each in range(self.__width):
                         rectstr += "#"
-                        if i < self.__height - 1:
-                            rectstr += "\n"
-            return (rectstr)
+                    if i < self.__height - 1:
+                        rectstr += "\n"
+            return rectstr
