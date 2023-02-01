@@ -57,4 +57,5 @@ class Rectangle():
         return rectstr
 
     def __repr__(self):
+        """ Func that add repr """
         return "Rectangle({:d}, {:d})".format(self.width, self.height)
