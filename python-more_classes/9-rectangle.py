@@ -15,10 +15,12 @@ class Rectangle():
         Rectangle.number_of_instances += 1
 
     @property
+    """ width """
     def width(self):
         return self.__width
 
     @width.setter
+    """ width """
     def width(self, value):
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
@@ -28,10 +30,12 @@ class Rectangle():
             self.__width = value
 
     @property
+    """ height """
     def height(self):
         return self.__height
 
     @height.setter
+    """ height """
     def height(self, value):
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
@@ -69,10 +73,12 @@ class Rectangle():
         return "Rectangle({:d}, {:d})".format(self.width, self.height)
 
     def __del__(self):
+        """ del """
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
     @staticmethod
+    """ static """
     def bigger_or_equal(rect_1, rect_2):
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
