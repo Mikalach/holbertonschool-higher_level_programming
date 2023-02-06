@@ -4,7 +4,6 @@ function that returns the list of available attributes and methods
 """
 
 
-
 def lookup(obj):
 
     """
@@ -21,5 +20,5 @@ def lookup(obj):
     >>> lookup(a)
     ['__add__', '__class__', '__contains__', '__delattr__',.........
     """
-    
+
     return dir(obj)
