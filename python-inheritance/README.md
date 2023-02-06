@@ -1,0 +1,1 @@
+this is the readme for inheritance project in holberton school
