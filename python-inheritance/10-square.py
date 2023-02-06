@@ -4,7 +4,6 @@
 
 BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
-
 class Rectangle(BaseGeometry):
     """ Class rectangel """
 
@@ -19,6 +18,7 @@ class Rectangle(BaseGeometry):
 
     def __str__(self):
         return "[Rectangle] {}/{}".format(self._width, self._height)
+
 
 class Square(Rectangle):
     """ Class Square """
