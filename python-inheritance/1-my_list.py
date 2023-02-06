@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" module documentation """
+
+
 class MyList(list):
 """ module documentation """
 
