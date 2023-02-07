@@ -6,13 +6,13 @@
 
 
 def write_file(filename="", text=""):
+    """Write a string to a text file and return the number of characters written.
+
+    filename (str): The name of the file to write to.
+    text (str): The text to write to the file.
+
+    Returns:
+    int: The number of characters written.
     """
-        function that write string and number char print
-        Attributs:
-        ===============
-            filename : name of file to write
-            write : sentence to write in the file
-    """
-    with open(filename, mode="w", encoding="utf-8") as file:
-    file.write(text)
-    return len(text)
+    with open(filename, 'w', encoding='utf8') as f:
+        return f.write(text)
