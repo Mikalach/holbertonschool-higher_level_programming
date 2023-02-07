@@ -1,21 +1,13 @@
 #!/usr/bin/python3
-""" module documentation """
-BaseGeometry = __import__("7-base_geometry").BaseGeometry
-Rectangle = __import__("9-base_rectangle").Rectangle
+""" Square class creation """
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """ Class Square """
-
+    """ class Square (arborescence: BaseGeometry -> Rectangle -> Square)"""
     def __init__(self, size):
-        """ comment """
-        self.integer_validator("size", size)
+        super().integer_validator("size", size)
         self.__size = size
-
-    def area(self):
-        """ comment """
-        return self.__size * self.__size
-
-    def __str__(self):
-        """ comment """
-        return "[Square] {}/{}".format(self.__size, self.__size)
+        # initialise the square as a rectangle to use area()
+        Rectangle.__init__(self, size, size)
