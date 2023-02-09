@@ -9,11 +9,11 @@ if __name__ == '__main__':
     load = __import__('6-load_from_json_file').load_from_json_file
 
     try:
-        data = load_from_json_file("add_item.json")
+        data = load("add_item.json")
     except:
         data = []
 
     for arg in sys.argv[1:]:
         data.append(arg)
 
-    save_to_json_file(data, "add_item.json")
+    save(data, "add_item.json")
