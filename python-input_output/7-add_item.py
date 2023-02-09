@@ -13,7 +13,7 @@ if __name__ == '__main__':
     except:
         data = []
 
-    for arg in args:
+    for arg in sys.argv[1:]:
         data.append(arg)
 
     save_to_json_file(data, "add_item.json")
