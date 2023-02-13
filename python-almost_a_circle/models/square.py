@@ -15,3 +15,12 @@ class Square(Rectangle):
         y = self.y
         size = self.width
         return repsqr.format(id, x, y, size)
+
+    @property
+    def size(self):
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        self.width = value
+        self.height = value
