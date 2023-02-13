@@ -81,6 +81,7 @@ class Rectangle(Base):
         return reprect.format(id, x, y, width, height)
 
     def update(self, *args):
+        """ updated """
         if args:
             self.id = args[0]
         if len(args) > 1:
