@@ -80,10 +80,10 @@ class Rectangle(Base):
         height = self.height
         return reprect.format(id, x, y, width, height)
 
-def update(self, *args, **kwargs):
-    """ module documented """
-    if args:
-        self.id = args[0]
+    def update(self, *args, **kwargs):
+        """ module documented """
+        if args:
+            self.id = args[0]
         if len(args) > 1:
             self.width = args[1]
         if len(args) > 2:
@@ -92,15 +92,15 @@ def update(self, *args, **kwargs):
             self.x = args[3]
         if len(args) > 4:
             self.y = args[4]
-    else:
-        for key, value in kwargs.items():
-            if key == "id":
-                self.id = value
-            if key == "width":
-                self.width = value
-            if key == "height":
-                self.height = value
-            if key == "x":
-                self.x = value
-            if key == "y":
-                self.y = value
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "width":
+                    self.width = value
+                if key == "height":
+                    self.height = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
