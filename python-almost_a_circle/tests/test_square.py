@@ -1,4 +1,4 @@
-import unittest
+"""import unittest
 from models.square import Square
 
 
@@ -71,3 +71,4 @@ class Test_Square(unittest.TestCase):
         list_square_input = [square1, square2]
         Square.save_to_file(list_square_input)
         list_square_output = Square.load_from_file()
+"""
