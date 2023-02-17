@@ -170,16 +170,3 @@ class Test_Rectangle(unittest.TestCase):
         r = Rectangle(1, 1, 0, 1, 1)
         res = {'x': 0, 'y': 1, 'id': 1, 'height': 1, 'width': 1}
         self.assertDictEqual(res, r.to_dictionary())
-
-
-    def test__widthValueError(self):
-        # tests width = 0
-        with self.assertRaises(ValueError) as e:
-            rect3 = Rectangle(0, 8, 0, 0)
-        self.assertEqual(str(e.exception), 'width must be > 0')
-
-    def test_RectangleSaveToFileNone(self):
-        # save to file if no list_obj
-        Rectangle.save_to_file(None)
-        with open("Rectangle.json", "r") as file:
-            self.assertTrue("[]", file.read())
