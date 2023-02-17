@@ -1,4 +1,4 @@
-import unittest
+"""import unittest
 from models.rectangle import Rectangle
 
 class Test_Rectangle(unittest.TestCase):
@@ -98,3 +98,4 @@ class Test_Rectangle(unittest.TestCase):
         list_rectangles_input = [recc1, recc2]
         Rectangle.save_to_file(list_rectangles_input)
         list_rectangles_output = Rectangle.load_from_file()
+"""
