@@ -1,0 +1,1 @@
+This is the readme for the project MySQL for holberton school
