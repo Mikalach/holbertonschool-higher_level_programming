@@ -1,0 +1,1 @@
+This is the readme for the more queries SQL in holberton school
