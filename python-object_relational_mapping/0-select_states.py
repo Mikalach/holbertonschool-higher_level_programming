@@ -13,17 +13,12 @@ if __name__ == "__main__":
         db=sys.argv[3]
     )
 
-    """ Create a cursor object to interact with the database """
     cur = db.cursor()
-
-    """ Execute the query to fetch all states """
     cur.execute("SELECT * FROM states ORDER BY id ASC")
 
-    """ Fetch all rows and print them """
     rows = cur.fetchall()
     for row in rows:
         print(row)
 
-    """ Close the cursor and database connection """
     cur.close()
     db.close()
