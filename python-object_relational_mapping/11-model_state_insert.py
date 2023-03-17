@@ -15,7 +15,7 @@ def add_state_to_database():
     new_state = State(name='Louisiana')
     session.add(new_state)
     session.commit()
-    print(f"Added new state with id {new_state.id}")
+    print(f"{new_state.id}")
 
     session.close()
 
