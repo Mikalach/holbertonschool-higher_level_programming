@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Table Print """
+""" Table Print module documentation"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -12,7 +12,10 @@ if __name__ == "__main__":
 
     Base.metadata.create_all(engine)
 
-    with sessionmaker(bind=engine)() as session:
-        query = session.query(State.id, State.name)
-        for row in query:
-            print(f"{row[0]}: {row[1]}")
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    for state in session.query(State).order_by(State.id):
+        print("{}: {}".format(state.id, state.name))
+
+    session.close()
