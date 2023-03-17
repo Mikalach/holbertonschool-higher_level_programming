@@ -1,5 +1,14 @@
 #!/usr/bin/python3
-""" module documentation """
+""" takes in an argument and displays all values in the states
+table of hbtn_0e_0_usa where name matches the argument.
+Arguments:
+    argv[1]: mysql username
+    argv[2]: mysql password
+    argv[3]: database name
+    argv[4]: state name searched
+"""
+
+
 import MySQLdb
 import sys
 
