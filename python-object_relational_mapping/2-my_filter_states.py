@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" the database hbtn_0e_0_usa: """
+""" module documentation """
 
 
 import MySQLdb
