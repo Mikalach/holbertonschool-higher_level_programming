@@ -17,7 +17,11 @@ def list_cities(username: str, password: str, database: str) -> None:
 
     cursor = db.cursor()
 
-    cursor.execute("SELECT * FROM cities ORDER BY id ASC")
+    cursor.execute("""
+        SELECT cities.id, cities.name, states.name
+        FROM cities JOIN states ON cities.state_id = states.id
+        ORDER BY cities.id ASC
+    """)
 
     results = cursor.fetchall()
 
