@@ -14,7 +14,11 @@ def delete_states_with_a():
     with sessionmaker(bind=engine)() as session:
         num_deleted = session.query(State).filter(State.name.like('%a%')).delete()
         session.commit()
-        print(f"Deleted {num_deleted} states with 'a' in their name")
+
+        states = session.query(State).all()
+        print("id\tname")
+        for state in states:
+            print(f"{state.id}\t{state.name}")
 
 
 if __name__ == "__main__":
