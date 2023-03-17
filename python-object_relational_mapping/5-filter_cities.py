@@ -1,21 +1,39 @@
 #!/usr/bin/python3
-""" takes in an argument and displays all values in the states
-table of hbtn_0e_0_usa where name matches the argument.
-"""
+""" documented module """
 import MySQLdb
 import sys
 
+if __name__ == '__main__':
+    if len(sys.argv) != 5:
+        print(f"Usage: {sys.argv[0]} <username> <password> <database> <state_name>")
+        sys.exit(1)
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3])
+    # Retrieve command line arguments
+    username, password, database, state_name = sys.argv[1:]
+
+    # Connect to database
+    db = MySQLdb.connect(
+        host="localhost",
+        user=username,
+        password=password,
+        database=database,
+        port=3306
+    )
+
+    # Create cursor and execute query
     cursor = db.cursor()
-    cursor.execute("SELECT cities.id, cities.name, states.name FROM cities
-                    JOIN states ON cities.state_id = states.id
-                    WHERE states.name = %s ORDER BY cities.id ASC",
-                   (sys.argv[4],))
-    data = cursor.fetchall()
-    for row in data:
-        print(row)
-    cursor.close()
+    query = """
+    SELECT cities.name
+    FROM cities
+    LEFT JOIN states ON states.id = cities.state_id
+    WHERE states.name = %s
+    ORDER BY cities.id ASC
+    """
+    cursor.execute(query, (state_name,))
+
+    # Print results
+    results = [row[0] for row in cursor.fetchall()]
+    print(", ".join(results))
+
+    # Close database connection
     db.close()
