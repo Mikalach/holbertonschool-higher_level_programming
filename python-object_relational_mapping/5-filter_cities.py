@@ -5,9 +5,10 @@ import sys
 
 if __name__ == '__main__':
     if len(sys.argv) != 5:
-        print(f"Usage: {sys.argv[0]} <username> <password> <database>
-        <state_name>")
-        sys.exit(1)
+        username = sys.argv[1]
+        password = sys.argv[2]
+        database = sys.argv[3]
+        state_name = sys.argv[4]
 
     # Retrieve command line arguments
     username, password, database, state_name = sys.argv[1:]
