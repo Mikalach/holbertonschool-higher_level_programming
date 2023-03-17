@@ -1,25 +1,29 @@
 #!/usr/bin/python3
-""" Delete States with 'a' """
+""" Deletes all State objects with a name containing the letter a """
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 
-def delete_states_with_a():
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+if __name__ == "__main__":
+    username = sys.argv[1]
+    password = sys.argv[2]
+    db_name = sys.argv[3]
+
+    conn_string = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+        username, password, db_name)
+
+    engine = create_engine(conn_string)
     Base.metadata.create_all(engine)
 
-    with sessionmaker(bind=engine)() as session:
-        num_deleted = session.query(State).filter(State.name.like('%a%')).delete()
-        session.commit()
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-        states = session.query(State).all()
-        print("id\tname")
-        for state in states:
-            print(f"{state.id}\t{state.name}")
+    states_with_a = session.query(State).filter(State.name.contains('a')).all()
 
+    for state in states_with_a:
+        session.delete(state)
 
-if __name__ == "__main__":
-    delete_states_with_a()
+    session.commit()
+    session.close()
