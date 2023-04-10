@@ -11,9 +11,9 @@ class Square extends Square1 {
     if (c === undefined) {
       c = 'X';
     }
-    for (let i = 0; i < this.size; i++) {
+    for (let i = 0; i < this.height; i++) {
       let row = '';
-      for (let j = 0; j < this.size; j++) {
+      for (let j = 0; j < this.width; j++) {
         row += c;
       }
       console.log(row);
