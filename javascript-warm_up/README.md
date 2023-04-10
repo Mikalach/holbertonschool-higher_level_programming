@@ -1,0 +1,1 @@
+This is the readme for the javascript warmup project for Holberton School
