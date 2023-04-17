@@ -8,7 +8,5 @@ const data = process.argv[3];
 fs.writeFile(filePath, data, 'utf8', (err) => {
   if (err) {
     console.error(`Error writing to file: ${err}`);
-  } else {
-    console.log(`${data}`);
   }
 });
