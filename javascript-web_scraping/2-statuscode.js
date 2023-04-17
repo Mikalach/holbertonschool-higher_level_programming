@@ -8,6 +8,6 @@ request(url, function (error, response, body) {
   if (!error && response.statusCode == 200) {
     console.log(`code: ${response.statusCode}`);
   } else {
-    console.error(`${error}`);
+    console.error(`code: 404${error}`);
   }
 });
