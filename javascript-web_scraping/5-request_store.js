@@ -17,6 +17,5 @@ request(url, (error, response, body) => {
       console.error(error);
       return;
     }
-    console.log(`${filePath}`);
   });
 });
