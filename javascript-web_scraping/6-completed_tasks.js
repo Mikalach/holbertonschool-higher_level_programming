@@ -1,9 +1,9 @@
 #!/usr/bin/node
 
-const { argv } = require('process');
 const request = require('request');
 
-const apiUrl = argv[2]
+const apiUrl = 'https://jsonplaceholder.typicode.com/todos';
+
 request(apiUrl, (error, response, body) => {
   if (error) {
     console.error(error);
@@ -24,7 +24,5 @@ request(apiUrl, (error, response, body) => {
     }
   }
 
-  for (const userId in completedTasks) {
-    console.log(`'${userId}': ${completedTasks[userId]}`);
-  }
+  console.log(JSON.stringify(completedTasks, null, 2));
 });
