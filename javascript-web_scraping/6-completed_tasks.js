@@ -23,7 +23,11 @@ request(url, (error, response, body) => {
     }
   }
 
-  const formattedOutput = Object.keys(completedTasks).map(key => ` '${key}': ${completedTasks[key]}`).join(',\n');
+  let output = '';
+  Object.entries(completedTasks).forEach(([key, value]) => {
+    output += `'${key}': ${value}, `;
+  });
+  output = '{\n' + output.slice(0, -2) + '\n}';
 
-  console.log(`{\n${formattedOutput}\n}`);
+  console.log(output);
 });
