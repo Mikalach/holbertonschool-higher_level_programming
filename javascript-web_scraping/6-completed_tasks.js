@@ -1,32 +1,19 @@
 #!/usr/bin/node
 
+// Module
 const request = require('request');
-const url = process.argv[2] || 'https://jsonplaceholder.typicode.com/todos';
+const process = require('process');
 
-request(url, (error, response, body) => {
-  if (error) {
-    console.error(error);
-    return;
-  }
-
-  const todos = JSON.parse(body);
-  const completedTasks = {};
-
-  for (const todo of todos) {
-    if (todo.completed) {
-      const userId = todo.userId;
-      if (!completedTasks[userId]) {
-        completedTasks[userId] = 1;
-      } else {
-        completedTasks[userId]++;
-      }
+// Function
+const dict = {};
+request(process.argv[2], function (error, response, body) {
+  if (error) throw error;
+  JSON.parse(body).forEach(element => {
+    if (element.completed === true) {
+      if (dict[element.userId] === undefined) {
+        dict[element.userId] = 1;
+      } else { dict[element.userId] = dict[element.userId] += 1; }
     }
-  }
-
-  const output = Object.keys(completedTasks)
-    .sort()
-    .map(userId => `'${userId}': ${completedTasks[userId]}`)
-    .join(',\n  ');
-
-  console.log(`{ ${output} }\n`);
+  });
+  console.log(dict);
 });
