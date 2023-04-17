@@ -24,7 +24,20 @@ request(apiUrl, (error, response, body) => {
     }
   }
 
+  const keys = Object.keys(completedTasks);
+  const numKeys = keys.length;
+  let count = 0;
+  const keyValuePairs = [];
+
   for (const userId in completedTasks) {
-    console.log(`'${userId}': ${completedTasks[userId]},`);
+    const pair = `'${userId}': ${completedTasks[userId]}`;
+    keyValuePairs.push(pair);
+    count++;
+
+    if (count < numKeys) {
+      keyValuePairs.push(',');
+    }
   }
+
+  console.log(`{ ${keyValuePairs.join(' ')} }`);
 });
