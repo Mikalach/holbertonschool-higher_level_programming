@@ -23,11 +23,10 @@ request(url, (error, response, body) => {
     }
   }
 
-  let output = '';
-  Object.entries(completedTasks).forEach(([key, value]) => {
-    output += `'${key}': ${value}, `;
-  });
-  output = '{\n' + output.slice(0, -2) + '\n}';
+  const output = Object.keys(completedTasks)
+    .sort()
+    .map(userId => `'${userId}': ${completedTasks[userId]}`)
+    .join(',\n  ');
 
-  console.log(output);
+  console.log(`{ ${output} }\n`);
 });
