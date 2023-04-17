@@ -1,9 +1,9 @@
 #!/usr/bin/node
 
-const { argv } = require('process');
 const request = require('request');
 
-const apiUrl = argv[2]
+const apiUrl = process.argv[2];
+
 request(apiUrl, (error, response, body) => {
   if (error) {
     console.error(error);
@@ -23,6 +23,6 @@ request(apiUrl, (error, response, body) => {
       }
     }
   }
-    console.log(JSON.stringify(completedTasks));
-  }
-);
+
+  console.log(JSON.stringify(completedTasks, null, 2).replace(/"/g, "'"));
+});
