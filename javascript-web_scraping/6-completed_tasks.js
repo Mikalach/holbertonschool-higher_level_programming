@@ -23,5 +23,7 @@ request(url, (error, response, body) => {
     }
   }
 
-  console.log(JSON.stringify(completedTasks, null, 2).replace(/"/g, "'"));
+  const formattedOutput = Object.keys(completedTasks).map(key => ` '${key}': ${completedTasks[key]}`).join(',\n');
+
+  console.log(`{\n${formattedOutput}\n}`);
 });
