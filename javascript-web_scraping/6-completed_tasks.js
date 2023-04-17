@@ -1,10 +1,9 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 
 const request = require('request');
+const url = process.argv[2] || 'https://jsonplaceholder.typicode.com/todos';
 
-const apiUrl = process.argv[2];
-
-request(apiUrl, (error, response, body) => {
+request(url, (error, response, body) => {
   if (error) {
     console.error(error);
     return;
