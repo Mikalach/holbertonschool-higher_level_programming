@@ -5,9 +5,9 @@ const request = require('request');
 const url = process.argv[2];
 
 request(url, function (error, response, body) {
-  if (!error && response.statusCode == 200) {
+  if (!error && response.statusCode === 200) {
     console.log(`code: ${response.statusCode}`);
   } else {
-    console.error(`code: 404${error}`);
+    console.error(`${error}`);
   }
 });
